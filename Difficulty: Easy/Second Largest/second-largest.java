@@ -1,22 +1,24 @@
 class Solution {
     public int getSecondLargest(int[] arr) {
         // code here
-       
-        Arrays.sort(arr);
+      
+      HashSet<Integer> set=new HashSet<>();
+     int ans=0;
         
-        int largest = arr[arr.length-1];
-       
-        for(int i=arr.length-1; i>=0; i--){
-            
-            if(arr[i] < largest){
-              
-                return arr[i];
-                
+        for(int i=0;i<arr.length;i++){
+            if(!set.contains(arr[i])){
+                set.add(arr[i]);
             }
-            
-            
+        }
+        if(set.size()==1){
+            return -1;
         }
         
-        return -1;
+        ArrayList<Integer> list = new ArrayList<>(set);
+        Collections.sort(list);
+
+         ans=list.get(list.size()-2);
+         return ans;
+       
     }
 }
