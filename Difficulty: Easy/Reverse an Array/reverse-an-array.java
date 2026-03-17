@@ -1,32 +1,16 @@
-class Solution
-{
-    public void reverseArray(int arr[])
-    {
+class Solution {
+    public void reverseArray(int arr[]) {
         // code here
-        int n=arr.length;
-        int res[]=new int[n];
-        /*
-        for(int i=n-1;i>=0;i--)
-        {
-            for(int j=0;j<n;j++)
-            {
-                res[j]=arr[i];
-                
-            }
-        }
-        System.out.print(res);
-        */
+        int i=0;
+        int j=arr.length-1;
         
-        int i=n-1,j=0;
-        while(j<res.length){
-            res[j]=arr[i];
-            j++;
-            i--;
+        while(i<j){
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            
+            i++;
+            j--;
         }
-        
-       for( i=0;i<res.length;i++){
-           arr[i]=res[i];
-       } 
     }
- 
 }
